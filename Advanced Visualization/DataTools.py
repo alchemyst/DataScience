@@ -296,7 +296,9 @@ def dataslicer(filename):
     Ls7, = ax3.plot(datafull[:,0], datafull[:,7], picker=5)
     Ls8, = ax3.plot(datafull[:,0], datafull[:,8], picker=5)
     Ls9, = ax3.plot(datafull[:,0], datafull[:,9], picker=5)
-        
+    
+    Ls0, = ax3.plot([np.round(np.shape(data)[0]/2,0), np.round(np.shape(data)[0]/2,0)], [-0.1, 1.5], 'k', linestyle='dashed')
+       
     x = [0.6, 1.6]
     y = [1.5, 1.5]
     
@@ -451,6 +453,9 @@ def dataslicer(filename):
                         if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                             maxval = max(datafull[int(left_pos):int(right_pos),i])
                 ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                 ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
             elif first_click == 1:
@@ -471,6 +476,9 @@ def dataslicer(filename):
                         if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                             maxval = max(datafull[int(left_pos):int(right_pos),i])
                 ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                 ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
             elif first_click == 2:
@@ -490,6 +498,9 @@ def dataslicer(filename):
                              if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                                  maxval = max(datafull[int(left_pos):int(right_pos),i])
                      ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                     Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                      ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
                 elif xpos > right_pos:
@@ -507,6 +518,9 @@ def dataslicer(filename):
                              if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                                  maxval = max(datafull[int(left_pos):int(right_pos),i])
                      ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                     Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                      ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
                 elif xpos > middle:
@@ -524,6 +538,9 @@ def dataslicer(filename):
                              if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                                  maxval = max(datafull[int(left_pos):int(right_pos),i])
                      ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                     Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                      ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
                 elif xpos < middle: 
@@ -541,6 +558,9 @@ def dataslicer(filename):
                              if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                                  maxval = max(datafull[int(left_pos):int(right_pos),i])
                      ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+    
+                     Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+    
                      ax3.figure.canvas.draw() # this line is critical to change the linewidth
     
             ax3.axes.set_xlim(left_pos, right_pos)         
@@ -565,6 +585,10 @@ def dataslicer(filename):
                                 maxval = max(datafull[int(left_pos):int(right_pos),i])
                     ax3.axes.set_ylim(minval-0.1, maxval+0.1)
 
+                    Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+
+                    ax3.figure.canvas.draw() # this line is critical to change the linewidth
+
                 elif xpos > middle:
                     rightgrey.remove()
                     rightgrey = ax2.axvspan(xpos, ind_max, facecolor='0.5', alpha=0.5)
@@ -580,6 +604,10 @@ def dataslicer(filename):
                             if max(datafull[int(left_pos):int(right_pos),i])>maxval:
                                 maxval = max(datafull[int(left_pos):int(right_pos),i])
                     ax3.axes.set_ylim(minval-0.1, maxval+0.1)
+
+                    Ls0.set_xdata([np.round((right_pos-left_pos)/2+left_pos,0), np.round((right_pos-left_pos)/2+left_pos,0)])            
+
+                    ax3.figure.canvas.draw() # this line is critical to change the linewidth
 
                 ax3.axes.set_xlim(left_pos, right_pos)         
 #                ax3.axes.set_ylim(-0.1, 1.1)
