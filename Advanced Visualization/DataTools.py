@@ -9,16 +9,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_lines(ax2, datafull):
-    L1, = ax2.plot(datafull[:, 0], datafull[:, 1], picker=5)
-    L2, = ax2.plot(datafull[:, 0], datafull[:, 2], picker=5)
-    L3, = ax2.plot(datafull[:, 0], datafull[:, 3], picker=5)
-    L4, = ax2.plot(datafull[:, 0], datafull[:, 4], picker=5)
-    L5, = ax2.plot(datafull[:, 0], datafull[:, 5], picker=5)
-    L6, = ax2.plot(datafull[:, 0], datafull[:, 6], picker=5)
-    L7, = ax2.plot(datafull[:, 0], datafull[:, 7], picker=5)
-    L8, = ax2.plot(datafull[:, 0], datafull[:, 8], picker=5)
-    L9, = ax2.plot(datafull[:, 0], datafull[:, 9], picker=5)
+def plot_lines(ax, datafull, **kwargs):
+    L1, = ax.plot(datafull[:, 0], datafull[:, 1], picker=5, **kwargs)
+    L2, = ax.plot(datafull[:, 0], datafull[:, 2], picker=5, **kwargs)
+    L3, = ax.plot(datafull[:, 0], datafull[:, 3], picker=5, **kwargs)
+    L4, = ax.plot(datafull[:, 0], datafull[:, 4], picker=5, **kwargs)
+    L5, = ax.plot(datafull[:, 0], datafull[:, 5], picker=5, **kwargs)
+    L6, = ax.plot(datafull[:, 0], datafull[:, 6], picker=5, **kwargs)
+    L7, = ax.plot(datafull[:, 0], datafull[:, 7], picker=5, **kwargs)
+    L8, = ax.plot(datafull[:, 0], datafull[:, 8], picker=5, **kwargs)
+    L9, = ax.plot(datafull[:, 0], datafull[:, 9], picker=5, **kwargs)
     return L1, L2, L3, L4, L5, L6, L7, L8, L9
 
 
@@ -70,16 +70,8 @@ def dataselector(filename):
     ax3.axes.set_ylim(-0.1, 1.1)
 
     L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
-    Ls1, = ax3.plot(datafull[:,0], datafull[:,1], visible=False, picker=5)
-    Ls2, = ax3.plot(datafull[:,0], datafull[:,2], visible=False, picker=5)
-    Ls3, = ax3.plot(datafull[:,0], datafull[:,3], visible=False, picker=5)
-    Ls4, = ax3.plot(datafull[:,0], datafull[:,4], visible=False, picker=5)
-    Ls5, = ax3.plot(datafull[:,0], datafull[:,5], visible=False, picker=5)
-    Ls6, = ax3.plot(datafull[:,0], datafull[:,6], visible=False, picker=5)
-    Ls7, = ax3.plot(datafull[:,0], datafull[:,7], visible=False, picker=5)
-    Ls8, = ax3.plot(datafull[:,0], datafull[:,8], visible=False, picker=5)
-    Ls9, = ax3.plot(datafull[:,0], datafull[:,9], visible=False, picker=5)
-    
+    Ls1, Ls2, Ls3, Ls4, Ls5, Ls6, Ls7, Ls8, Ls9 = plot_lines(ax3, datafull, visible=False)
+
     x = [0.6, 1.6]
     y = [1.5, 1.5]
     
@@ -291,15 +283,7 @@ def dataslicer(filename):
     ax3.axes.set_ylim(-0.1, 1.1)
     
     L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
-    Ls1, = ax3.plot(datafull[:,0], datafull[:,1], picker=5)
-    Ls2, = ax3.plot(datafull[:,0], datafull[:,2], picker=5)
-    Ls3, = ax3.plot(datafull[:,0], datafull[:,3], picker=5)
-    Ls4, = ax3.plot(datafull[:,0], datafull[:,4], picker=5)
-    Ls5, = ax3.plot(datafull[:,0], datafull[:,5], picker=5)
-    Ls6, = ax3.plot(datafull[:,0], datafull[:,6], picker=5)
-    Ls7, = ax3.plot(datafull[:,0], datafull[:,7], picker=5)
-    Ls8, = ax3.plot(datafull[:,0], datafull[:,8], picker=5)
-    Ls9, = ax3.plot(datafull[:,0], datafull[:,9], picker=5)
+    Ls1, Ls2, Ls3, Ls4, Ls5, Ls6, Ls7, Ls8, Ls9 = plot_lines(ax3, datafull)
     
     Ls0, = ax3.plot([np.round(np.shape(data)[0]/2,0), np.round(np.shape(data)[0]/2,0)], [-0.1, 1.5], 'k', linestyle='dashed')
        
@@ -685,35 +669,9 @@ def datamunge(filename):
     ax3.axes.set_ylim(-0.1, 1.1)
     
     L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
-    Ls1, = ax3.plot(datafull[:,0], datafull[:,1], visible=False, picker=5)
-    Ls2, = ax3.plot(datafull[:,0], datafull[:,2], visible=False, picker=5)
-    Ls3, = ax3.plot(datafull[:,0], datafull[:,3], visible=False, picker=5)
-    Ls4, = ax3.plot(datafull[:,0], datafull[:,4], visible=False, picker=5)
-    Ls5, = ax3.plot(datafull[:,0], datafull[:,5], visible=False, picker=5)
-    Ls6, = ax3.plot(datafull[:,0], datafull[:,6], visible=False, picker=5)
-    Ls7, = ax3.plot(datafull[:,0], datafull[:,7], visible=False, picker=5)
-    Ls8, = ax3.plot(datafull[:,0], datafull[:,8], visible=False, picker=5)
-    Ls9, = ax3.plot(datafull[:,0], datafull[:,9], visible=False, picker=5)
-    
-    L1o, = ax2.plot(datafull[:,0], datafull[:,1], lw=4 , alpha=0.2)
-    L2o, = ax2.plot(datafull[:,0], datafull[:,2], lw=4 , alpha=0.2)
-    L3o, = ax2.plot(datafull[:,0], datafull[:,3], lw=4 , alpha=0.2)
-    L4o, = ax2.plot(datafull[:,0], datafull[:,4], lw=4 , alpha=0.2)
-    L5o, = ax2.plot(datafull[:,0], datafull[:,5], lw=4 , alpha=0.2)
-    L6o, = ax2.plot(datafull[:,0], datafull[:,6], lw=4 , alpha=0.2)
-    L7o, = ax2.plot(datafull[:,0], datafull[:,7], lw=4 , alpha=0.2)
-    L8o, = ax2.plot(datafull[:,0], datafull[:,8], lw=4 , alpha=0.2)
-    L9o, = ax2.plot(datafull[:,0], datafull[:,9], lw=4 , alpha=0.2)
-    Ls1o, = ax3.plot(datafull[:,0], datafull[:,1], visible=False, lw=4 , alpha=0.2)
-    Ls2o, = ax3.plot(datafull[:,0], datafull[:,2], visible=False, lw=4 , alpha=0.2)
-    Ls3o, = ax3.plot(datafull[:,0], datafull[:,3], visible=False, lw=4 , alpha=0.2)
-    Ls4o, = ax3.plot(datafull[:,0], datafull[:,4], visible=False, lw=4 , alpha=0.2)
-    Ls5o, = ax3.plot(datafull[:,0], datafull[:,5], visible=False, lw=4 , alpha=0.2)
-    Ls6o, = ax3.plot(datafull[:,0], datafull[:,6], visible=False, lw=4 , alpha=0.2)
-    Ls7o, = ax3.plot(datafull[:,0], datafull[:,7], visible=False, lw=4 , alpha=0.2)
-    Ls8o, = ax3.plot(datafull[:,0], datafull[:,8], visible=False, lw=4 , alpha=0.2)
-    Ls9o, = ax3.plot(datafull[:,0], datafull[:,9], visible=False, lw=4 , alpha=0.2)
-    
+    Ls1, Ls2, Ls3, Ls4, Ls5, Ls6, Ls7, Ls8, Ls9 = plot_lines(ax3, datafull, visible=False)
+    L1o, L2o, L3o, L4o, L5o, L6o, L7o, L8o, L9o = plot_lines(ax3, datafull, lw=4, alpha=0.2)
+    Ls1o, Ls2o, Ls3o, Ls4o, Ls5o, Ls6o, Ls7o, Ls8o, Ls9o = plot_lines(ax3, datafull, lw=4, alpha=0.2, visible=False)
     
     x = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8]
     y = [0.6, 1.6, 2.6, 3.6, 4.6, 5.6, 0.6, 1.6, 2.6, 3.6, 4.6, 5.6]
