@@ -8,6 +8,20 @@ Created on Wed Sep 10 10:41:55 2014
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+def plot_lines(ax2, datafull):
+    L1, = ax2.plot(datafull[:, 0], datafull[:, 1], picker=5)
+    L2, = ax2.plot(datafull[:, 0], datafull[:, 2], picker=5)
+    L3, = ax2.plot(datafull[:, 0], datafull[:, 3], picker=5)
+    L4, = ax2.plot(datafull[:, 0], datafull[:, 4], picker=5)
+    L5, = ax2.plot(datafull[:, 0], datafull[:, 5], picker=5)
+    L6, = ax2.plot(datafull[:, 0], datafull[:, 6], picker=5)
+    L7, = ax2.plot(datafull[:, 0], datafull[:, 7], picker=5)
+    L8, = ax2.plot(datafull[:, 0], datafull[:, 8], picker=5)
+    L9, = ax2.plot(datafull[:, 0], datafull[:, 9], picker=5)
+    return L1, L2, L3, L4, L5, L6, L7, L8, L9
+
+
 def dataselector(filename):
     global ismember
     global sub_set
@@ -54,16 +68,8 @@ def dataselector(filename):
     
     ax2.axes.set_ylim(-0.1, 1.3)
     ax3.axes.set_ylim(-0.1, 1.1)
-    
-    L1, = ax2.plot(datafull[:,0], datafull[:,1], picker=5)
-    L2, = ax2.plot(datafull[:,0], datafull[:,2], picker=5)
-    L3, = ax2.plot(datafull[:,0], datafull[:,3], picker=5)
-    L4, = ax2.plot(datafull[:,0], datafull[:,4], picker=5)
-    L5, = ax2.plot(datafull[:,0], datafull[:,5], picker=5)
-    L6, = ax2.plot(datafull[:,0], datafull[:,6], picker=5)
-    L7, = ax2.plot(datafull[:,0], datafull[:,7], picker=5)
-    L8, = ax2.plot(datafull[:,0], datafull[:,8], picker=5)
-    L9, = ax2.plot(datafull[:,0], datafull[:,9], picker=5)
+
+    L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
     Ls1, = ax3.plot(datafull[:,0], datafull[:,1], visible=False, picker=5)
     Ls2, = ax3.plot(datafull[:,0], datafull[:,2], visible=False, picker=5)
     Ls3, = ax3.plot(datafull[:,0], datafull[:,3], visible=False, picker=5)
@@ -222,6 +228,9 @@ def dataselector(filename):
     #cid = fig.canvas.mpl_connect('button_press_event', onclick)
     cid = fig.canvas.mpl_connect('pick_event', onpick)
 
+
+
+
 def dataslicer(filename):
 
     global ind_max
@@ -281,15 +290,7 @@ def dataslicer(filename):
     ax2.axes.set_ylim(-0.1, 1.3)
     ax3.axes.set_ylim(-0.1, 1.1)
     
-    L1, = ax2.plot(datafull[:,0], datafull[:,1], picker=5)
-    L2, = ax2.plot(datafull[:,0], datafull[:,2], picker=5)
-    L3, = ax2.plot(datafull[:,0], datafull[:,3], picker=5)
-    L4, = ax2.plot(datafull[:,0], datafull[:,4], picker=5)
-    L5, = ax2.plot(datafull[:,0], datafull[:,5], picker=5)
-    L6, = ax2.plot(datafull[:,0], datafull[:,6], picker=5)
-    L7, = ax2.plot(datafull[:,0], datafull[:,7], picker=5)
-    L8, = ax2.plot(datafull[:,0], datafull[:,8], picker=5)
-    L9, = ax2.plot(datafull[:,0], datafull[:,9], picker=5)
+    L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
     Ls1, = ax3.plot(datafull[:,0], datafull[:,1], picker=5)
     Ls2, = ax3.plot(datafull[:,0], datafull[:,2], picker=5)
     Ls3, = ax3.plot(datafull[:,0], datafull[:,3], picker=5)
@@ -683,15 +684,7 @@ def datamunge(filename):
     ax2.axes.set_ylim(-0.1, 1.3)
     ax3.axes.set_ylim(-0.1, 1.1)
     
-    L1, = ax2.plot(datafull[:,0], datafull[:,1], picker=5)
-    L2, = ax2.plot(datafull[:,0], datafull[:,2], picker=5)
-    L3, = ax2.plot(datafull[:,0], datafull[:,3], picker=5)
-    L4, = ax2.plot(datafull[:,0], datafull[:,4], picker=5)
-    L5, = ax2.plot(datafull[:,0], datafull[:,5], picker=5)
-    L6, = ax2.plot(datafull[:,0], datafull[:,6], picker=5)
-    L7, = ax2.plot(datafull[:,0], datafull[:,7], picker=5)
-    L8, = ax2.plot(datafull[:,0], datafull[:,8], picker=5)
-    L9, = ax2.plot(datafull[:,0], datafull[:,9], picker=5)
+    L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
     Ls1, = ax3.plot(datafull[:,0], datafull[:,1], visible=False, picker=5)
     Ls2, = ax3.plot(datafull[:,0], datafull[:,2], visible=False, picker=5)
     Ls3, = ax3.plot(datafull[:,0], datafull[:,3], visible=False, picker=5)
@@ -1379,15 +1372,7 @@ def datacorr(filename):
     xvar = 1
     yvar = 2
     
-    L1, = ax2.plot(datafull[:,0], datafull[:,1], picker=5)
-    L2, = ax2.plot(datafull[:,0], datafull[:,2], picker=5)
-    L3, = ax2.plot(datafull[:,0], datafull[:,3], picker=5)
-    L4, = ax2.plot(datafull[:,0], datafull[:,4], picker=5)
-    L5, = ax2.plot(datafull[:,0], datafull[:,5], picker=5)
-    L6, = ax2.plot(datafull[:,0], datafull[:,6], picker=5)
-    L7, = ax2.plot(datafull[:,0], datafull[:,7], picker=5)
-    L8, = ax2.plot(datafull[:,0], datafull[:,8], picker=5)
-    L9, = ax2.plot(datafull[:,0], datafull[:,9], picker=5)
+    L1, L2, L3, L4, L5, L6, L7, L8, L9 = plot_lines(ax2, datafull)
     Ls1, = ax3.plot(datafullO[:,xvar-1], datafullO[:,yvar-1], 'ko', markersize = 6)#, picker=5)
     Ls2, = ax3.plot(datafullO[0,xvar-1], datafullO[0,yvar-1], 'bo', markersize = 10)#, picker=5)
     Ls2.set_visible(False)
