@@ -9,18 +9,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_lines(ax, datafull, **kwargs):
-    L1, = ax.plot(datafull[:, 0], datafull[:, 1], picker=5, **kwargs)
-    L2, = ax.plot(datafull[:, 0], datafull[:, 2], picker=5, **kwargs)
-    L3, = ax.plot(datafull[:, 0], datafull[:, 3], picker=5, **kwargs)
-    L4, = ax.plot(datafull[:, 0], datafull[:, 4], picker=5, **kwargs)
-    L5, = ax.plot(datafull[:, 0], datafull[:, 5], picker=5, **kwargs)
-    L6, = ax.plot(datafull[:, 0], datafull[:, 6], picker=5, **kwargs)
-    L7, = ax.plot(datafull[:, 0], datafull[:, 7], picker=5, **kwargs)
-    L8, = ax.plot(datafull[:, 0], datafull[:, 8], picker=5, **kwargs)
-    L9, = ax.plot(datafull[:, 0], datafull[:, 9], picker=5, **kwargs)
-    return L1, L2, L3, L4, L5, L6, L7, L8, L9
-
+def plot_lines(ax, datafull, N=10, **kwargs):
+    return [ax.plot(datafull[:, 0], datafull[:, i], picker=5, **kwargs)[0]
+            for i in range(1, N)]
 
 def dataselector(filename):
     global ismember
